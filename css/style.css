@@ -1,0 +1,8 @@
+#viewAllPokemon {
+  display: flex;
+  flex-direction: column;
+
+  table-layout: fixed;
+  word-wrap: break-word;
+  word-break: break-all;
+}
