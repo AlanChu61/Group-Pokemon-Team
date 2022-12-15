@@ -1,8 +1,30 @@
-#viewAllPokemon {
-  display: flex;
-  flex-direction: column;
+* {
+  box-sizing: border-box;
+}
+button {
+  border-radius: 5px;
+}
+#addTeam {
+  background-color: rgb(1, 238, 1);
+}
+#remove {
+  color: white;
+  background-color: red;
+}
 
-  table-layout: fixed;
-  word-wrap: break-word;
-  word-break: break-all;
+.pokemonContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.pokemonInfo {
+  display: grid;
+  text-align: center;
+  line-height: 1.25;
+}
+
+div.circle {
+  border: 5px solid red;
 }
