@@ -1,6 +1,9 @@
 # GROUP-POKEMON-TEAM:
+This game aims to group the six Pokemon as a team. 
+- The computer would group pokemon randomly and the player can re-group computer's team if not satisfied. 
+- The player can group the own team by clicking the button under each Pokemon's img. 
 
-This game aims to group the six pokemon as a team. The computer would group pokemon randomly and the player can re-group computer's team if not satissief. The play can group his own team by clicking the button under each pokemon's img. This game also provide the functionality of viewing pokemon based on given ID range. No need to worries your team would get mess if you wanna re-search for other ID region of pokemons.
+This game also provide the functionality of viewing pokemon based on given ID range. No need to worries your team would get messed if you wanna re-search for other ID region of pokemons.
 
 # Technologies
 
@@ -13,8 +16,9 @@ Used: HTML, CSS, JavaScript, jQuery, AJAX
 
 # Getting Started:
 
-https://alanchu61.github.io/GROUP-POKEMON-TEAM/
+[Click here](https://alanchu61.github.io/GROUP-POKEMON-TEAM/) to see the deployed app!
 
 # Future Enhancements:
-
-One of the possibilities is we can design how those pokemons fight based on its abilites. Moreover, we can let pokemon get evolved if he won some games. Or we can also setup some hosital or training center to recover pained pokemon or imporve its abilities....
+- More Pokemon involved: The current version only supports PokemonID from 1-151, and the PokemonID 1-906 are ready in the [PokéAPI](https://pokeapi.co/). 
+- More Pokemon's interation: How Pokemon fight? How Pokemon get hurt? How Pokemon get evolved? 
+- More feature/facilities to interact with Pokemon: Some Pokemo center to heal injured Pokemon? Some training center to make Pokemons stronger?
