@@ -26,7 +26,7 @@ $("#getAllPokemon").click(function () {
   idInputList = idInput.split("-");
   //modify header
   $("#viewAllPokemonHead").text(
-    `Here are Pokemons from ID:${idInputList[0]}-${idInputList[1]}`
+    `Here are Pokemons from ID: ${idInputList[0]}-${idInputList[1]}`
   );
   //refrsh viewAllPokemon
   $("#viewAllPokemon").text("");
