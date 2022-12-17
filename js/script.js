@@ -16,8 +16,6 @@ $(document).ready(function () {
   for (let i = 1; i <= 151; i++) {
     getPokemonNameById(i);
   }
-  //sort pokemonList
-  pokemonList.sort((a, b) => a.id - b.id);
 });
 
 //viewAllPokemonList
@@ -166,6 +164,10 @@ function getPokemonList(currentPokemonName) {
     .then((pokemon) => {
       //push pokemon as obj into pokemonList(Array)
       pokemonList.push(pokemon);
+      //sort pokemonList
+      pokemonRandomId.sort(function (a, b) {
+        return a.id - b.id;
+      });
     })
     .catch((err) => {
       console.log("Bad Request", error);

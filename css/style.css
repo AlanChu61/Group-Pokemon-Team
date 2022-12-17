@@ -98,7 +98,9 @@ footer {
   height: 5%;
   left: 0;
   bottom: 0;
+  width: 100%;
   position: fixed;
+
   font-size: 20px;
   text-align: center;
   background-color: rgba(0, 0, 255, 0.334);
