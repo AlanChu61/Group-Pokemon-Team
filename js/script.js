@@ -1,25 +1,48 @@
-let instruction = "Welcome to the website, ";
-let menu = "we have some options here: ";
+let imgSrc;
+let pokeIdandName;
 let viewAllPokemon;
 let addTeamMember;
 let removePokemonId;
 
+//pokemonArray with pokemon as obj
 const pokemonList = [];
-const groupPokemonRandom = [];
 const groupPokemonRandomId = [];
 const myPokemonList = [];
+
+//docuemnt ready and build allPokemonList
+$(document).ready(function () {
+  for (let i = 1; i <= 151; i++) {
+    getPokemonNameById(i);
+  }
+});
 
 //viewAllPokemonList
 $("#getAllPokemon").click(function () {
   idInput = prompt("Please Key the ID range you want to view?(0-???)");
   idInputList = idInput.split("-");
 
-  for (let i = idInputList[0]; i <= idInputList[1]; i++) {
-    getPokemonNameById(i);
-  }
+  //modify header
   $("#viewAllPokemonHead").text(
     `Here are Pokemons from ID:${idInputList[0]}-${idInputList[1]}`
   );
+  //read pokemonList and load pokemon into grid based on given id
+  for (let i = idInputList[0]; i <= idInputList[1]; i++) {
+    //retrieve pokemon's photo and id
+    imgSrc = pokemonList[i - 1].sprites.other["official-artwork"].front_default;
+    pokeIdandName = pokemonList[i - 1].id + ": " + pokemonList[i - 1].name;
+
+    //created a jQuery obj with needed info and appendTo the div with #viewAllPokemon
+    $("#viewAllPokemon").append(
+      $(`<div class="pokemonInfo"><span class="pokemonImg">
+            <img src=${imgSrc} width="100" height="100">
+            </span>
+            <span class="pokemonId">${pokeIdandName}<br>
+            <button id="addTeam">Add</button>
+            </span>
+            </div>
+          `)
+    );
+  }
 });
 
 //hideAllPokemonList
@@ -34,20 +57,28 @@ $("#removeAllPokemon").click(function () {
 });
 
 $("#getPokemonListByRandom").click(function () {
-  let imgSrc;
-  let pokeIDandName;
-  groupPokemonRandom.splice(0, groupPokemonRandom.length);
+  groupPokemonRandomId.splice(0, groupPokemonRandomId.length);
   getPokemoTeamRandom();
-  $("#pokemonImg").text(" ");
-  $("#pokemonId").text(" ");
-  for (let pokemon of groupPokemonRandom) {
-    //console.log(pokemon);
-    imgSrc = pokemon.sprites.other["official-artwork"].front_default;
-    pokeIDandName = pokemon.id + ": " + pokemon.name;
-    $("#pokemonImg").append(
-      `<td><img src=${imgSrc} width="100" height="100"></td>`
+  groupPokemonRandomId.sort(function (a, b) {
+    return a - b;
+  });
+  $("#getPokemonRand").text("");
+  for (let pokemonId of groupPokemonRandomId) {
+    imgSrc =
+      pokemonList[pokemonId - 1].sprites.other["official-artwork"]
+        .front_default;
+    pokeIdandName =
+      pokemonList[pokemonId - 1].id + ": " + pokemonList[pokemonId - 1].name;
+
+    $("#getPokemonRand").append(
+      $(`<div class="pokemonInfo"><span class="pokemonImg">
+            <img src=${imgSrc} width="100" height="100">
+            </span>
+            <span class="pokemonId">${pokeIdandName}
+            </span>
+            </div>
+          `)
     );
-    $("#pokemonId").append(`<td>${pokeIDandName}</td>`);
   }
 });
 
@@ -65,7 +96,6 @@ $("div#viewAllPokemon").on("click", "#addTeam", function (evt) {
 
 // remove Teaam from myTeam
 $("div#getMyTeam").on("click", "#remove", function (evt) {
-  console.log(evt.target);
   $(evt.target.parentElement.parentElement).fadeOut();
   removePokemonId = evt.target.parentElement.innerHTML.split(":")[0];
   removeCircle(removePokemonId);
@@ -82,6 +112,10 @@ function removeCircle(removePokemonId) {
   }
 }
 
+/**
+ * With given pokemon id, and return pokemon name
+ * @param {*} id
+ */
 function getPokemonNameById(id) {
   $.ajax({
     url: `https://pokeapi.co/api/v2/pokemon-form/${id}/`,
@@ -101,22 +135,7 @@ function getPokemonList(currentPokemonName) {
     .then((pokemon) => {
       //push pokemon as obj into pokemonList
       pokemonList.push(pokemon);
-
-      //retrieve pokemon's photo and id
-      imgSrc = pokemon.sprites.other["official-artwork"].front_default;
-      pokeIdandName = pokemon.id + ": " + pokemon.name;
-
-      //created a jQuery obj with needed info and appendTo the div with #viewAllPokemon
-      $("#viewAllPokemon").append(
-        $(`<div class="pokemonInfo"><span class="pokemonImg">
-          <img src=${imgSrc} width="100" height="100">
-          </span>
-          <span class="pokemonId">${pokeIdandName}
-          <button id="addTeam">Add</button>
-          </span>
-          </div>
-        `)
-      );
+      pokemonList.sort((a, b) => a.id - b.id);
     })
     .catch((err) => {
       console.log("Bad Request", error);
@@ -127,15 +146,13 @@ function getPokemoTeamRandom() {
   while (true) {
     let intRand;
     intRand = Math.floor(Math.random() * 151) + 1;
-    if (groupPokemonRandom.length >= 6) {
+    if (groupPokemonRandomId.length >= 6) {
       break;
     } else {
       if (groupPokemonRandomId.includes(intRand)) {
         continue;
       } else {
-        //console.log("int", intRand);
         groupPokemonRandomId.push(intRand);
-        groupPokemonRandom.push(pokemonList[intRand - 1]);
       }
     }
   }
