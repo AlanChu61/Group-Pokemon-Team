@@ -20,6 +20,8 @@ $(document).ready(function () {
 
 //viewAllPokemonList
 $("#getAllPokemon").click(function () {
+  //sort pokemonList
+  pokemonList.sort((a, b) => a.id - b.id);
   idInput = prompt("Please Key the ID range you want to view?(1-151)");
   idInputList = idInput.split("-");
   //modify header
@@ -164,10 +166,6 @@ function getPokemonList(currentPokemonName) {
     .then((pokemon) => {
       //push pokemon as obj into pokemonList(Array)
       pokemonList.push(pokemon);
-      //sort pokemonList
-      pokemonRandomId.sort(function (a, b) {
-        return a.id - b.id;
-      });
     })
     .catch((err) => {
       console.log("Bad Request", error);
@@ -192,6 +190,9 @@ function getPokemoTeamRandom() {
       }
     }
   }
+  pokemonRandomId.sort(function (a, b) {
+    return a.id - b.id;
+  });
 }
 
 /**
