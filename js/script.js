@@ -75,7 +75,7 @@ $("#getPokemonListByRandom").click(function () {
   putPokemonToDOM(pokemonRandomId, "#getPokemonRand");
 });
 
-// addTeam by clicking
+// addTeam by clicking btn
 $("div#viewAllPokemon").on("click", "#addTeam", function (evt) {
   if (myPokemonList.length < 6) {
     addTeamMember = $(evt.target.parentElement.parentElement).clone();
