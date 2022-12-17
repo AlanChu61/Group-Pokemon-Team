@@ -4,31 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script defer src="/js/script.js"></script>
     <title>GROUP-POKEMON-TEAM</title>
   </head>
   <body>
-    <h1>GROUP-POKEMON-TEAM</h1>
-    <p id="yourPokemonList"></p>
+    <header>GROUP-POKEMON-TEAM</header>
 
-    <h2 id="viewAllPokemonHead">Here are Pokemon List:</h2>
-    <div class="btnContainer">
-      <button id="getAllPokemon">Search</button>
-      <button id="hideAllPokemon">Hide All</button>
-      <button id="removeAllPokemon">Delete All</button>
-    </div>
 
-    <div class="pokemonContainer" id="viewAllPokemon"></div>
+      <div>
+        <h2>Here are Pokemon List:</h2>
+        <div class="btnContainer">
+          <button id="getAllPokemon">SEARCH</button>
+          <button id="hideAllPokemon">HIDE</button>
+          <button id="removeAllPokemon">DELETE</button>
+        </div>
 
-    <h2>PokrmonListByRadndom:</h2>
-    <button id="getPokemonListByRandom">GroupTeam</button>
-    <div class="pokemonContainer" id="getPokemonRand"></div>
+        <div class="pokemonContainer" id="viewAllPokemon"></div>
+      </div>
 
-    <h2>Group the team by click the imgs:</h2>
-    <div class="pokemonContainer" id="getMyTeam"></div>
+      <div id="pokemonBody">
+        <h4>
+          Computer's Pokemon Team<br />
+          <button id="getPokemonListByRandom">Click To Group</button>
+        </h4>
 
-    <footer></footer>
+        <h4 id="myTeam">My Pokemon Team</h4>
+        <div class="pokemonContainer" id="getPokemonRand"></div>
+        <div class="pokemonContainer" id="getMyTeam"></div>
+        <br>
+      </div>
+
+
+      <footer id="readyFight">
+        Ready to fight?
+        <button id="readyToFight" ">Yes!</button>
+      </footer>
+
   </body>
 </html>
