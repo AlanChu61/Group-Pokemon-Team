@@ -8,8 +8,8 @@ Used: HTML, CSS, JavaScript, jQuery, AJAX
 
 # Screenshot
 
-![](https://alanchu61.github.io/GROUP-POKEMON-TEAM/src/gameTop.png =50%x)
-![](https://alanchu61.github.io/GROUP-POKEMON-TEAM/src/gameBtm.png =50%x)
+![](https://alanchu61.github.io/GROUP-POKEMON-TEAM/src/gameTop.png)
+![](https://alanchu61.github.io/GROUP-POKEMON-TEAM/src/gameBtm.png)
 
 # Getting Started:
 
