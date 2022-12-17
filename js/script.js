@@ -31,7 +31,7 @@ $("#getAllPokemon").click(function () {
   //refrsh viewAllPokemon
   $("#viewAllPokemon").text("");
   //load Pokemons to the DOM based on input
-  for (let i = idInputList[0]; i <= idInputList[1]; i++) {
+  for (let i = idInputList[0] * 1; i <= idInputList[1] * 1; i++) {
     //retrieve Pokemon's photo and id
     imgSrc = pokemonList[i - 1].sprites.other["official-artwork"].front_default;
     pokeIdandName = "#" + pokemonList[i - 1].id + " " + pokemonList[i - 1].name;
