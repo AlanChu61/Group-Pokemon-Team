@@ -8,8 +8,8 @@ Used: HTML, CSS, JavaScript, jQuery, AJAX
 
 # Screenshot
 
-![](https://i.imgur.com/2tEHUqv.png =50%x)
-![](https://i.imgur.com/DGKhBgq.png =50%x)
+![](https://i.imgur.com/2tEHUqv.png =50)
+![](https://i.imgur.com/DGKhBgq.png =50)
 
 # Getting Started:
 
