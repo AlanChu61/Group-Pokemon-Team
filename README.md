@@ -18,7 +18,7 @@ Used: HTML, CSS, JavaScript, jQuery, AJAX
 
 # Getting Started:
 
-[Click here](https://alanchu61.github.io/GROUP-POKEMON-TEAM/) to see the deployed app!
+[Click here](https://alanchu61.github.io/Group-Pokemon-Team/) to see the deployed app!
 
 # Future Enhancements:
 
